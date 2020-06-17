@@ -1,0 +1,22 @@
+<mat-card class="hello-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Выберите список задач для спринта</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      <mat-action-list>
+        <mat-list-item *ngFor="let p of tasks; index as i;" >
+          <mat-checkbox (change)="showTasks($event, p.id)"
+                        [checked]="ifInTasks(p.id)"
+                        [disabled]="isDisabled(p)">{{p.name}} ({{tasksSrv.getStatusString(tasksSrv.getTaskStatus(p))}})
+          </mat-checkbox>
+        </mat-list-item>
+      </mat-action-list>
+    </p>
+  </mat-card-content>
+    <mat-card-actions>
+    <button routerLink="/questions" mat-button [disabled]="nextDisabled()">Далее</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,17 @@
+<mat-card-content>
+  <p>
+    Все задачи решены, перейти к следущему спринту?
+  </p>
+</mat-card-content>
+<mat-card-actions>
+  <div class="div-action">
+    <button mat-stroked-button color="primary" class="btn-block" routerLink="/tasks"
+            (click)="nextSprint(); questionSrv.lockScreen();">
+      Да
+    </button>
+    <button mat-stroked-button color="primary" class="btn-block" (click)="questionSrv.unlockScreen();">
+      Нет
+    </button>
+  </div>
+</mat-card-actions>
+

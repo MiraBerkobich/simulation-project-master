@@ -1,0 +1,26 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+  <span class="nav-tool-items">
+    <a *ngIf="!auth.isAuthenticated()" mat-flat-button color="primary" routerLink="login" routerLinkActive="active">Войти</a>
+    <a *ngIf="!auth.isAuthenticated()" mat-flat-button color="primary" routerLink="register" routerLinkActive="active">Регистрация</a>
+    <a *ngIf="auth.isAuthenticated()" (click)="projectsClick()" mat-flat-button color="primary"
+       routerLinkActive="active">О проекте</a>
+    <a *ngIf="auth.isAuthenticated()"
+       mat-flat-button
+       color="primary"
+       routerLink="client"
+       routerLinkActive="active"
+       [disabled]="sprintDisabled() || clientDisabled()">Заказчик </a>
+    <a *ngIf="auth.isAuthenticated()"
+       mat-flat-button
+       color="primary"
+       routerLinkActive="active"
+       routerLink="team"
+       [disabled]="sprintDisabled() || teamDisabled()">Команда </a>
+    <a *ngIf="auth.isAuthenticated()" mat-flat-button color="primary" routerLink="tasks-list" routerLinkActive="active">Список задач</a>
+    <a *ngIf="auth.isAuthenticated()" mat-flat-button color="primary" routerLinkActive="active" routerLink="points">Баллы</a>
+    <a *ngIf="auth.isAuthenticated()" mat-flat-button color="primary" routerLink="diary" routerLinkActive="active">Мой дневник</a>
+    <a *ngIf="auth.isAuthenticated()" mat-flat-button color="primary" routerLink="rating" routerLinkActive="active">Рейтинг</a>
+    <a *ngIf="auth.isAuthenticated()" (click)="logoutClick()" mat-flat-button color="primary">Выйти</a>
+  </span>
+</mat-toolbar>

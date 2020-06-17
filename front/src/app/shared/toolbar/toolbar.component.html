@@ -1,0 +1,31 @@
+<mat-card class="hello-card">
+  <mat-card-content>
+    <div class="div-action">
+      <button (click)="openMeeting()" mat-raised-button color="primary" [disabled]="meetingDisabled">Ежедневные встречи</button>
+      <button (click)="openRetrospective()" mat-raised-button color="primary">Ретроспектива</button>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip *ngIf="timerSrv.sprintTimer" color="primary" selected>{{timerSrv.sprintTimer}}</mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<ng-template #meeting>
+  <div class="modal-dialog">
+    <div class="desc">Провести ежедневную встречу?</div>
+    <div class="action">
+          <button (click)="meetingYes()" mat-raised-button color="primary">Да</button>
+          <button (click)="meetingNo()" mat-raised-button color="warn">Нет</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #retrospective>
+  <div class="modal-dialog">
+    <div class="desc">Провести ретроспективу?</div>
+    <div class="action">
+          <button (click)="retroYes()" mat-raised-button color="primary">Да</button>
+          <button (click)="retroNo()" mat-raised-button color="warn">Нет</button>
+    </div>
+  </div>
+</ng-template>

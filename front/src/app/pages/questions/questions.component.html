@@ -1,0 +1,17 @@
+<div *ngIf="questionSrv.screenLocked" id="screen-lock"></div>
+<mat-card class="hello-card">
+  <mat-card-header>
+    <mat-card-title>Спринт № {{sprintSrv.sprint}}
+
+    </mat-card-title>
+
+      Правильность ответа = {{ questionSrv.userAnswer.correct }} <br>
+       Сложность текущего вопроса = {{ questionSrv.currentQuestion.complexity}}
+  </mat-card-header>
+  <app-current *ngIf="questionSrv.showQuestion && questionSrv.screenLocked"
+               (unlockMeeting)="unsetMeetingDisabled($event)" ></app-current>
+  <app-next *ngIf="!questionSrv.showQuestion && !questionSrv.showNewSprintScreen"></app-next>
+  <app-complete *ngIf="questionSrv.showNewSprintScreen"></app-complete>
+</mat-card>
+<app-toolbar [meetingDisabled]="meetingDisabled"
+             (setMeetingDisabled)="unsetMeetingDisabled($event)"></app-toolbar>

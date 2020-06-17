@@ -1,0 +1,50 @@
+<div class="card-wrapper">
+  <mat-toolbar>
+    <a mat-flat-button routerLink="/tasks">Вернуться</a>
+  </mat-toolbar>
+  <div class="two-card">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Заказчик</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p>
+          Имя:<br>
+          Описание:
+        </p>
+      </mat-card-content>
+
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Общение с заказчиком</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content *ngIf="questionSrv.question_length">
+        <p *ngIf="questionSrv.clientCurrentQuestion">
+          {{questionSrv.clientCurrentQuestion.desc}}
+        </p>
+        <hr>
+        <mat-radio-group class="radio-group" *ngIf="questionSrv.clientCurrentQuestion" class="radio-group"
+                         [(ngModel)]="questionSrv.userAnswer">
+          <p *ngFor="let ans of questionSrv.clientCurrentQuestion.answers">
+            <mat-radio-button class="radio-button" (change)="questionSrv.setAnswer(ans)" [value]="ans">
+            </mat-radio-button>
+            {{ans.text}}</p>
+        </mat-radio-group>
+      </mat-card-content>
+      <mat-card-actions *ngIf="questionSrv.question_length">
+        <button *ngIf="questionSrv.answered" mat-stroked-button color="primary"
+                (click)="questionSrv.createClientDiaryRecord(); questionSrv.getClientCurrentQuestion(); "
+                class="btn-block">
+          Ответить
+        </button>
+      </mat-card-actions>
+      <mat-card-content *ngIf="!questionSrv.question_length">
+        <p>Вопросов больше нет</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<app-toolbar></app-toolbar>

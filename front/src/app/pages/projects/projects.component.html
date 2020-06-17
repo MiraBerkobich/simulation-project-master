@@ -1,0 +1,15 @@
+<mat-card class="hello-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Выберите проект</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      <mat-action-list>
+       <button *ngFor="let p of projects" (click)="setMainProject(p)" mat-list-item> {{p.name}} </button>
+      </mat-action-list>
+    </p>
+  </mat-card-content>
+</mat-card>
+

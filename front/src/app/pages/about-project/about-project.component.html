@@ -1,0 +1,30 @@
+<mat-card class="hello-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ projectsSrv.mainProject.name }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p class="right">
+      <mat-form-field>
+        <mat-label>Сроки</mat-label>
+        <mat-select [(ngModel)]="projectsSrv.deadline">
+          <mat-option *ngFor="let d of projectsSrv.deadlines" name="deadline" [value]="d" >
+            {{ d }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      {{ projectsSrv.mainProject.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button routerLink="/projects" mat-button>Выбрать другой проект</button>
+
+    <button mat-button routerLink="/tasks">Далее</button>
+
+
+  </mat-card-actions>
+</mat-card>
+

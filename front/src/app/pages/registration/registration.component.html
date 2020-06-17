@@ -1,0 +1,35 @@
+<div class="login-wrapper">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Регистрация</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form">
+
+      <mat-card-content>
+        <div class="auth-form-wrapper">
+           <span class="mat-error" *ngFor="let error of auth.errors.username"><br />
+               {{ error }}</span>
+          <mat-form-field class="">
+            <input matInput placeholder="Username" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
+
+          </mat-form-field>
+           <span class="mat-error" *ngFor="let error of auth.errors.email"><br />
+               {{ error }}</span>
+
+          <mat-form-field class="">
+            <input matInput placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+
+           <span class="mat-error" *ngFor="let error of auth.errors.password"><br />
+               {{ error }}</span>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </div>
+         <span class="mat-error" *ngFor="let error of auth.errors.non_field_errors">{{ error }}<br/></span>
+      </mat-card-content>
+      <button mat-stroked-button color="primary" (click)="registration()" class="btn-block">Зарегистрироваться</button>
+    </form>
+  </mat-card>
+</div>

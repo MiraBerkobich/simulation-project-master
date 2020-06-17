@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  width: 100%
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+app-login, app-registration {
+  min-width: 30%;
+}
+
+mat-toolbar {
+  a {
+    margin-right: 10px;
+
+    &.active {
+      border: 1px solid hsla(0, 0%, 100%, 0.39);
+    }
+  }
+}
+
+.auth-form-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+app-menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+app-index, app-projects,
+app-about-project, app-tasks, app-questions, app-diary,
+app-client, app-team, app-points, app-tasks-list, app-rating {
+  width: 100%;
+}
+
+app-tasks-list, app-points, app-team, app-client {
+  align-self: start;
+  margin-top: 100px;
+}
+
+.hello-card {
+  margin: 20px;
+  @media (min-width: 900px) {
+    max-width: 30%;
+    margin: 20px auto;
+  }
+}
+
+.card-wrapper {
+  max-width: 70%;
+  margin: 0 auto;
+
+  .two-card {
+    display: flex;
+    justify-content: space-around;
+
+    .card {
+      width: 45%;
+      margin: 20px;
+    }
+  }
+}
+
+

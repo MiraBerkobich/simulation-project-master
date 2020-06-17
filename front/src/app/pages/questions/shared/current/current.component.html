@@ -1,0 +1,41 @@
+<mat-card-content>
+  <p *ngIf="questionSrv.currentQuestion">
+    {{questionSrv.currentQuestion.desc}}
+  </p>
+  <hr>
+  <ng-template *ngIf="questionSrv.currentQuestion">
+  <p>
+    <span *ngIf="questionSrv.currentQuestion.help">
+      Подсказка: {{ questionSrv.currentQuestion.help}}</span>
+  </p>
+  <hr *ngIf="questionSrv.currentQuestion.help">
+    </ng-template>
+  <mat-radio-group *ngIf="questionSrv.currentQuestion" class="radio-group" [(ngModel)]="questionSrv.userAnswer">
+    <p *ngFor="let ans of questionSrv.currentQuestion.answers">
+      <mat-radio-button class="radio-button" (change)="questionSrv.setAnswer(ans)" [value]="ans">
+      </mat-radio-button>
+      {{ans.text}}</p>
+  </mat-radio-group>
+</mat-card-content>
+<mat-card-actions>
+  <button *ngIf="questionSrv.answered" mat-stroked-button color="primary"
+          (click)="questionSrv.createDiaryRecord();
+            questionSrv.setUserAnswer();
+            checkPoints();
+            questionSrv.getCurrentQuestion();
+            questionSrv.resetQuestionScreen();
+            questionSrv.setRating();
+            unlockMeetingClick()"
+          class="btn-block">
+    Ответить
+  </button>
+</mat-card-actions>
+<ng-template #failure>
+  <div class="modal-dialog">
+    <mat-icon>sentiment_very_dissatisfied</mat-icon>
+    <div class="desc">Вы завалили проект</div>
+    <div class="action">
+          <button (click)="ok()" mat-raised-button color="warn">Начать заново</button>
+    </div>
+  </div>
+</ng-template>

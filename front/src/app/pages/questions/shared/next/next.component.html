@@ -1,0 +1,22 @@
+<mat-card-content *ngIf="questionSrv.screenLocked">
+    <p>
+      Решаем следующий кейс?
+    </p>
+  </mat-card-content>
+  <mat-card-actions *ngIf="questionSrv.screenLocked">
+    <div class="div-action">
+      <button mat-stroked-button color="primary" class="btn-block" (click)="questionSrv.showQuestion = !questionSrv.showQuestion">
+        Да
+      </button>
+      <button mat-stroked-button color="primary" class="btn-block" (click)="questionSrv.unlockScreen(); questionSrv.showQuestion = false;">
+        Нет
+      </button>
+    </div>
+  </mat-card-actions>
+  <mat-card-content *ngIf="!questionSrv.screenLocked">
+    <p>
+      <button mat-stroked-button color="primary" class="btn-block" (click)="questionSrv.lockScreen()">
+        Вернуться к кейсам.
+      </button>
+    </p>
+  </mat-card-content>

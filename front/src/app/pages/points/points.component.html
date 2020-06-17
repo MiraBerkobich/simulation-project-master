@@ -1,0 +1,35 @@
+<div class="card-wrapper">
+  <mat-toolbar>
+    <a mat-flat-button (click)="backClicked()">Вернуться</a>
+  </mat-toolbar>
+</div>
+<mat-card class="hello-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Баллы</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+      <mat-action-list>
+        <mat-list-item >
+         Сроки {{pointsSrv.getDeadline()}}
+        </mat-list-item>
+        <mat-list-item >
+         Бюджет {{pointsSrv.getBudgetPoints()}}
+        </mat-list-item>
+        <mat-list-item >
+         Заказчик  {{pointsSrv.getClientPoints()}}
+        </mat-list-item>
+        <mat-list-item >
+         Команда {{ pointsSrv.getTeamPoints()}}
+        </mat-list-item>
+        <mat-list-item >
+         Качество {{ pointsSrv.getQualityPoints()}}
+        </mat-list-item>
+      </mat-action-list>
+    </p>
+  </mat-card-content>
+</mat-card>
+<app-toolbar></app-toolbar>
+
